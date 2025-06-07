@@ -84,20 +84,17 @@ let products = [
 for (item of products) {
   document.getElementById("result").innerHTML += `
     <div>
-        <div class="card">
+        <div class="card my-5">
             <img src="${item.image}" class="card-img-top" alt="${item.image}">
             <div class="card-body">
-                <h5 class="card-title fs-10">${item.name}</h5>
-                <p class="card-text fs-4">${item.description}</p>
-                <p class="card-text p-2">\u26A0 Priority level: <span>${item.PriorityLevel}</span> </p>
+                <h5 class="card-title">${item.name}</h5>
+                <p class="card-text">${item.description}</p>
+                <div class="card-text p-2" d-flex justify-content-between align-items-center">
+                  <span> \u26A0 Priority level: </span>
+                  <button class="btn btn-primary">${item.PriorityLevel}</button>
                 <p class="card-text p-2">\u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 </div>
-
-
-
-    
     `;
 }
