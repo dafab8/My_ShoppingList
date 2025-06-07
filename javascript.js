@@ -91,7 +91,7 @@ for (item of products) {
                 <p class="card-text">${item.description}</p>
                 <div class="card-text p-2" d-flex justify-content-between align-items-center">
                   <span> \u26A0 Priority level: </span>
-                  <button class="btn btn-primary">${item.PriorityLevel}</button>
+                  <button class="btn btn-primary likesBtn">${item.PriorityLevel}</button>
                 <p class="card-text p-2">\u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
             </div>
         </div>
