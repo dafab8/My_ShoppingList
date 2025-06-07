@@ -89,12 +89,22 @@ for (item of products) {
             <div class="card-body">
                 <h5 class="card-title">${item.name}</h5>
                 <p class="card-text">${item.description}</p>
-                <div class="card-text p-2" d-flex justify-content-between align-items-center">
+                <div class="card-text p-2 align-items-center">
                   <span> \u26A0 Priority level: </span>
-                  <button class="btn btn-primary likesBtn">${item.PriorityLevel}</button>
-                <p class="card-text p-2">\u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
+                  <button class="btn btn-primary PriorityBtn">${item.PriorityLevel}</button>
+                <p class="card-text p-2"> \u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
+                </div>
             </div>
-        </div>
-</div>
-    `;
+    </div>
+ `;
 }
+
+let PriorityBtn = document.querySelectorAll(".PriorityBtn");
+
+PriorityBtn.forEach((btn, index) => {
+  btn.addEventListener("click", function () {
+    products[index].PriorityLevel++;
+    console.log(products[index]);
+    btn.innerText = products[index].PriorityLevel;
+  });
+});
