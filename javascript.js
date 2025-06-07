@@ -85,11 +85,12 @@ for (item of products) {
   document.getElementById("result").innerHTML += `
     <div>
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${item.image}" class="card-img-top" alt="${item.image}">
             <div class="card-body">
-                <h5 class="card-title">${item.name}</h5>
-                <p class="card-text">Some quick example text to build on the card title and 
-                make up the bulk of the card’s content.</p>
+                <h5 class="card-title fs-10">${item.name}</h5>
+                <p class="card-text fs-4">${item.description}</p>
+                <p class="card-text p-2">\u26A0 Priority level: <span>${item.PriorityLevel}</span> </p>
+                <p class="card-text p-2">\u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
