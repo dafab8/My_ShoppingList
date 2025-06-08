@@ -6,8 +6,9 @@
 }
 
 .nav-container {
-  width: 60%;
-  margin: 0 auto;
+  width: 70%;
+  margin: auto;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +16,8 @@
 
 .nav-logo {
   font-size: 3rem;
-  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: white;
 }
 
@@ -24,8 +26,6 @@
   display: flex;
   font-size: 1.5rem;
   gap: 2rem;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links li {
@@ -40,7 +40,7 @@
 }
 
 .nav-links a:hover {
-  color: #f0a500;
+  color: lightblue;
 }
 /**Footer section*/
 
@@ -63,7 +63,7 @@
 }
 
 .social-icons a:hover {
-  color: #ccc;
+  color: lightcoral;
 }
 
 .footer p {
