@@ -1,83 +1,83 @@
 let products = [
   {
     name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    description: "take the dog for a walk.",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.05.27",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Flight to Japan",
+    description: "I need to pack",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.07.31",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Exam coming up",
+    description: "I need to study",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.05.30",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "do the laundry",
+    description: "needs to be done by Friday",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.06.07",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Going to the gym",
+    description: "go to the gym",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.06.15",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Read a book",
+    description: "finish reading the book",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.06.20",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Lisas Wedding",
+    description: "Weeding time",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.06.29",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Meal prep",
+    description: "doing meal preps for the next 2 days",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.07.01",
   },
 
   {
-    name: "Take the dog for a walk",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    name: "Home Office",
+    description: "staying at home today not in the office",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
-    deadline: "27.01.2022",
+    deadline: "2025.07.20",
   },
 ];
 
@@ -87,9 +87,10 @@ function showCards() {
   products.forEach((item, index) => {
     document.getElementById("result").innerHTML += `
     <div>
-        <div class="card my-5">
+        <div class="col mb-4">
+        <div class="card h-100">
             <img src="${item.image}" class="card-img-top" alt="${item.image}">
-            <div class="card-body">
+             <div class="card-body">
                 <h5 class="card-title">${item.name}</h5>
                 <p class="card-text">${item.description}</p>
                 <div class="card-text p-2 d-flex">
@@ -130,6 +131,10 @@ PriorityCard();
 
 //Sort button
 document.getElementById("sortBtn").addEventListener("click", function () {
-  products.sort((a, b) => a.PriorityLevel - b.PriorityLevel);
+  products.sort((a, b) => {
+    if (a.deadline < b.deadline) return -1;
+    if (a.deadline > b.deadline) return 1;
+    return 0;
+  });
   console.log(products);
 });
