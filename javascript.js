@@ -128,7 +128,7 @@ function PriorityCard() {
 
 PriorityCard();
 
-//Sort bttn
+//Sort button
 document.getElementById("sortBtn").addEventListener("click", function () {
   products.sort((a, b) => a.PriorityLevel - b.PriorityLevel);
   console.log(products);
