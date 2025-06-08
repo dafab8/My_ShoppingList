@@ -81,8 +81,11 @@ let products = [
   },
 ];
 
-for (item of products) {
-  document.getElementById("result").innerHTML += `
+function showCards() {
+  document.getElementById("result").innerHTML = "";
+
+  products.forEach((item, index) => {
+    document.getElementById("result").innerHTML += `
     <div>
         <div class="card my-5">
             <img src="${item.image}" class="card-img-top" alt="${item.image}">
@@ -95,25 +98,38 @@ for (item of products) {
                 </div>
                  <p class="card-text p-2"> \u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
             </div>
-    </div>
- `;
+      </div>
+    `;
+  });
+}
+showCards();
+
+function PriorityCard() {
+  let PriorityBtn = document.querySelectorAll(".PriorityBtn");
+
+  PriorityBtn.forEach((btn, index) => {
+    btn.addEventListener("click", function () {
+      if (products[index].PriorityLevel < 5) {
+        products[index].PriorityLevel++;
+        console.log(products[index]);
+        btn.innerText = products[index].PriorityLevel;
+
+        if (products[index].PriorityLevel <= 1) {
+          btn.className = "btn btn-success PriorityBtn";
+        } else if (products[index].PriorityLevel <= 3) {
+          btn.className = "btn btn-warning PriorityBtn";
+        } else {
+          btn.className = "btn btn-danger PriorityBtn";
+        }
+      }
+    });
+  });
 }
 
-let PriorityBtn = document.querySelectorAll(".PriorityBtn");
+PriorityCard();
 
-PriorityBtn.forEach((btn, index) => {
-  btn.addEventListener("click", function () {
-    if (products[index].PriorityLevel < 5) {
-      products[index].PriorityLevel++;
-      console.log(products[index]);
-      btn.innerText = products[index].PriorityLevel;
-      if (products[index].PriorityLevel <= 1) {
-        btn.className = "btn btn-success PriorityBtn";
-      } else if (products[index].PriorityLevel <= 3) {
-        btn.className = "btn btn-warning PriorityBtn";
-      } else {
-        btn.className = "btn btn-danger PriorityBtn";
-      }
-    }
-  });
+//Sort bttn
+document.getElementById("sortBtn").addEventListener("click", function () {
+  products.sort((a, b) => a.PriorityLevel - b.PriorityLevel);
+  console.log(products);
 });
