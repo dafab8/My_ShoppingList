@@ -1,7 +1,7 @@
 let products = [
   {
-    name: "Take the dog for a walk",
-    description: "take the dog for a walk.",
+    name: "banana",
+    description: "buy 4 banana",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -9,8 +9,8 @@ let products = [
   },
 
   {
-    name: "Flight to Japan",
-    description: "I need to pack",
+    name: "apple",
+    description: "buy 5 apples",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -18,8 +18,8 @@ let products = [
   },
 
   {
-    name: "Exam coming up",
-    description: "I need to study",
+    name: "dates",
+    description: "buy 1 kg of dates in the supermarket",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -27,8 +27,8 @@ let products = [
   },
 
   {
-    name: "do the laundry",
-    description: "needs to be done by Friday",
+    name: "garlic",
+    description: "need to buy garlic",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -36,8 +36,8 @@ let products = [
   },
 
   {
-    name: "Going to the gym",
-    description: "go to the gym",
+    name: "carrots",
+    description: "go buy carrots",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -45,8 +45,8 @@ let products = [
   },
 
   {
-    name: "Read a book",
-    description: "finish reading the book",
+    name: "salad",
+    description: "salad for dinner",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -54,8 +54,8 @@ let products = [
   },
 
   {
-    name: "Lisas Wedding",
-    description: "Weeding time",
+    name: "pasta",
+    description: "500 gramms of pasta ",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -63,8 +63,8 @@ let products = [
   },
 
   {
-    name: "Meal prep",
-    description: "doing meal preps for the next 2 days",
+    name: "Milk",
+    description: "2l of milk are needed",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
@@ -72,8 +72,8 @@ let products = [
   },
 
   {
-    name: "Home Office",
-    description: "staying at home today not in the office",
+    name: "cake",
+    description: "cake for friends birthday",
     image:
       "https://cdn.pixabay.com/photo/2017/06/21/22/32/planner-2428871_1280.jpg",
     PriorityLevel: 0,
