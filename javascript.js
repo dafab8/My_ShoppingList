@@ -81,59 +81,65 @@ let products = [
 ];
 
 function showCards() {
-  document.getElementById("result").innerHTML = "";
+  const result = document.getElementById("result");
+  result.innerHTML = "";
 
   products.forEach((item, index) => {
-    document.getElementById("result").innerHTML += `
-    <div>
-        <div class="col mb-4">
+    // Dynamisch Button-Farbe setzen
+    let buttonClass = "";
+    if (item.PriorityLevel <= 1) {
+      buttonClass = "btn-success";
+    } else if (item.PriorityLevel <= 3) {
+      buttonClass = "btn-warning";
+    } else {
+      buttonClass = "btn-danger";
+    }
+
+    // HTML für eine Card hinzufügen
+    result.innerHTML += `
+      <div class="col mb-4">
         <div class="card h-100">
-            <img src="${item.image}" class="card-img-top" alt="${item.image}">
-             <div class="card-body">
-                <h5 class="card-title">${item.name}</h5>
-                <p class="card-text">${item.description}</p>
-                <div class="card-text p-2 d-flex">
-                  <span> \u26A0 Priority level: </span>
-                  <button class="btn btn-success PriorityBtn">${item.PriorityLevel} </button>
-                </div>
-                 <p class="card-text p-2"> \u{1F4C5} Deadline: <span>${item.deadline} </span> </p>
+          <img src="${item.image}" class="card-img-top" alt="${item.name}">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title">${item.name}</h5>
+              <p class="card-text">${item.description}</p>
             </div>
+            <div>
+              <div class="card-text p-2 d-flex align-items-center gap-2">
+                <span>⚠️ Priority level:</span>
+                <button class="btn ${buttonClass} PriorityBtn" data-index="${index}">
+                  ${item.PriorityLevel}
+                </button>
+              </div>
+              <p class="card-text p-2">📅 Deadline: <span>${item.deadline}</span></p>
+            </div>
+          </div>
+        </div>
       </div>
     `;
   });
+
+  PriorityCard(); // Events setzen
 }
-showCards();
 
+// 3. Funktion zum Hinzufügen der Event-Listener
 function PriorityCard() {
-  let PriorityBtn = document.querySelectorAll(".PriorityBtn");
+  const buttons = document.querySelectorAll(".PriorityBtn");
 
-  PriorityBtn.forEach((btn, index) => {
+  buttons.forEach((btn) => {
+    const index = parseInt(btn.getAttribute("data-index"));
+
     btn.addEventListener("click", function () {
       if (products[index].PriorityLevel < 5) {
         products[index].PriorityLevel++;
-        console.log(products[index]);
-        btn.innerText = products[index].PriorityLevel;
-
-        if (products[index].PriorityLevel <= 1) {
-          btn.className = "btn btn-success PriorityBtn";
-        } else if (products[index].PriorityLevel <= 3) {
-          btn.className = "btn btn-warning PriorityBtn";
-        } else {
-          btn.className = "btn btn-danger PriorityBtn";
-        }
+        products.sort((a, b) => b.PriorityLevel - a.PriorityLevel);
+        showCards(); // neu rendern
       }
     });
   });
 }
 
-PriorityCard();
-
-//Sort button
-document.getElementById("sortBtn").addEventListener("click", function () {
-  products.sort((a, b) => {
-    if (a.deadline < b.deadline) return -1;
-    if (a.deadline > b.deadline) return 1;
-    return 0;
-  });
-  console.log(products);
-});
+// 4. Initialisieren
+products.sort((a, b) => b.PriorityLevel - a.PriorityLevel);
+showCards();
